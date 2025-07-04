@@ -1,0 +1,38 @@
+---
+layout: baseLayout.html
+---
+
+<main class="body-section p-0">
+  <article class="note m-0">
+    <hgroup>
+      <h2>
+        {{ page.date | date: "%B %Y" }}
+        <span class="glowicon" data-icon="{{ icon }}"> {{ icon }} </span>
+      </h2>
+      <p>{{ title }}</p>
+    </hgroup>
+
+    {{ content }}
+  </article>
+</main>
+
+<footer class="body-section newer-older">
+  <!-- More recent post -->
+  {% assign newer = collections.note | getNextCollectionItem: page %}
+
+  <!-- Older post -->
+  {% assign older = collections.note | getPreviousCollectionItem: page %}
+  <!-- More recent post -->
+  {% if newer %}
+  <a href="{{ newer.url }}">&leftarrow; Newer</a>
+  {% else %}
+  <span class="text-variant">You're all caught up! 🎉</span>
+  {% endif %}
+
+  <!-- Older post -->
+  {% if older %}
+  <a href="{{ older.url }}">Older &rightarrow;</a>
+  {% else %}
+  <span class="text-variant">This is the oldest note 🕸️</span>
+  {% endif %}
+</footer>

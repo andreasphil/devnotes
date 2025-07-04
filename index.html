@@ -1,0 +1,70 @@
+---
+layout: baseLayout.html
+---
+
+<main>
+  <section class="body-section">
+    <hgroup class="text-center my-body">
+      <h1>
+        Monthly-ish learnings and discoveries related to frontend, the web, and
+        software engineering in general.
+      </h1>
+      <p>
+        Curated by me,
+        <a href="https://github.com/andreasphil" target="_blank">Andreas</a> 👋
+        mostly for myself and my lovely coworkers at
+        <a href="https://digitalservice.bund.de" target="_blank">
+          DigitalService.
+        </a>
+      </p>
+    </hgroup>
+  </section>
+
+  <section class="body-section p-0">
+    {% assign latestNote = collections.note | last %}
+    <article class="note m-0">
+      <hgroup>
+        <p>Latest edition</p>
+        <h2>
+          {{ latestNote.page.date | date: "%B %Y" }}
+          <span class="glowicon" data-icon="{{ latestNote.data.icon }}">
+            {{ latestNote.data.icon }}
+          </span>
+        </h2>
+        <p>{{ latestNote.data.title }}</p>
+      </hgroup>
+
+      {{ latestNote.content }}
+    </article>
+  </section>
+
+  <section class="body-section py-body" data-trim="both">
+    <h2 class="text-center text-h3">Previous editions</h2>
+
+    {% assign previousNotes = collections.note | reverse | slice: 1, 6 %}
+
+    <div class="body-section p-0 -mx-8">
+      <ul class="grid">
+        {% for note in previousNotes %}
+        <li class="card">
+          <a href="{{ note.url }}">
+            <span class="card-icon glowicon" data-icon="{{ note.data.icon }}">
+              {{ note.data.icon }}
+            </span>
+            <span class="card-title" data-clamp>
+              {{ note.page.date | date: "%B %Y" }}
+            </span>
+            <span class="card-description" data-clamp style="--clamp: 2">
+              {{ note.data.title }}
+            </span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <p class="text-center">
+      Find all previous editions in the <a href="/archive">archive.</a>
+    </p>
+  </section>
+</main>

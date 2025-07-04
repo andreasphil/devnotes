@@ -1,0 +1,189 @@
+@import "/vendor/andreasphil/design-system@v0.49.0/dist/design-system.min.css"
+  layer(theme);
+
+/* Base ------------------------------------------------ */
+
+:root {
+  --body-padding-x: 0;
+  --body-padding-y: clamp(48px, 4.486vw + 31.402px, 96px);
+  --border-radius-large: 0px;
+  --line-height: 1.7;
+  --theme-tint: 250;
+  --theme-primary: 67% 0.18 250;
+}
+
+body {
+  border: dashed var(--c-border);
+  border-width: 0 var(--border-width);
+  margin-inline: 1rem;
+  min-height: 100dvh;
+}
+@media (width >= 50rem) {
+  body {
+    margin-inline: auto;
+  }
+}
+
+nav {
+  padding-block: 1rem;
+
+  li a {
+    font-weight: var(--font-weight-medium);
+  }
+}
+
+:is(h2, h3) {
+  text-transform: capitalize;
+}
+
+article {
+  box-shadow: none;
+}
+
+hr {
+  border-color: var(--c-border);
+  border-style: dashed;
+}
+
+strong {
+  font-weight: var(--font-weight-medium);
+}
+
+/* Composition ----------------------------------------- */
+
+.body-section {
+  border: 0px dashed var(--c-border);
+  border-block-end-width: var(--border-width);
+  border-block-start-width: var(--border-width);
+  padding-inline-end: 2rem;
+  padding-inline-start: 2rem;
+  margin-block-start: calc(-1 * var(--border-width));
+}
+
+.grid {
+  background-color: var(--c-border-variant);
+  display: grid;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  gap: 1px;
+}
+
+/* Blocks ---------------------------------------------- */
+
+.logo {
+  border-radius: 30%;
+  box-shadow: var(--shadow-elevation-high);
+}
+
+.note {
+  --block-spacing-y: 1rem;
+  --c-link: var(--primary);
+  --c-link-hover: var(--c-fg);
+
+  hgroup {
+    margin-block-end: 2rem;
+  }
+
+  h3 {
+    margin-block-start: 2rem;
+  }
+
+  :is(ol, ul, dl, li + li) {
+    margin-block-start: var(--block-spacing-y);
+  }
+
+  ul:last-child li:last-child p {
+    margin-block-end: 0;
+  }
+}
+
+.card {
+  height: 100%;
+  margin: 0;
+
+  a {
+    background-color: var(--c-surface-bg);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    height: 100%;
+    padding: 1.25rem;
+    text-decoration: none;
+    transition-property: border-color, color, background-color;
+
+    &:hover {
+      background-color: var(--c-bg);
+    }
+
+    &:focus-visible {
+      outline: var(--outline);
+      outline-offset: var(--outline-inset);
+    }
+  }
+
+  .card-icon {
+    font-size: var(--font-size-h5);
+    line-height: 1;
+    margin-bottom: 2.5rem;
+    margin-top: 0.1rem;
+  }
+
+  .card-title {
+    font-weight: var(--font-weight-medium);
+    line-height: 1.25;
+    margin-top: auto;
+  }
+
+  .card-description {
+    color: var(--c-fg-variant);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.25;
+  }
+}
+
+.newer-older {
+  display: flex;
+  justify-content: space-between;
+  max-width: 50rem;
+  padding-block: 2rem;
+}
+
+/* Utils ----------------------------------------------- */
+
+.-mx-8 {
+  margin-inline: -2rem;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.my-body {
+  margin-block-start: var(--body-padding-y);
+  margin-block-end: var(--body-padding-y);
+}
+
+.p-0 {
+  padding: 0;
+}
+
+.py-body {
+  padding-block-start: var(--body-padding-y);
+  padding-block-end: var(--body-padding-y);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-h3 {
+  font-size: var(--font-size-h3);
+}
+
+.text-variant {
+  color: var(--c-fg-variant);
+}

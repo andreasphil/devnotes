@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <link rel="icon" href="/assets/favicon.png" sizes="any" />
+    <title>
+      {% if title %}{{ title }} | {% endif %}devnotes
+    </title>
+
+    <!-- Styles -->
+    <style>
+      a {
+        /* Workaround to prevent flickering of links when the page is loaded, also
+        see scripts/app.js. */
+        transition-duration: var(--link-transition-duration, 0);
+      }
+    </style>
+
+    <link rel="stylesheet" href="/style/style.css" />
+
+    <!-- Scripts -->
+    <script async type="module" src="/scripts/app.js"></script>
+  </head>
+
+  <body>
+    <header class="body-section">
+      <nav>
+        <strong>
+          <img class="logo" width="36" height="36" src="/assets/icon-192.png" alt="">
+          devnotes
+        </strong>
+        <ul>
+          <li>
+            <a href="/" {% if page.url == "/" %}data-active="true"{% endif %}>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="/archive/" {% if page.url == "/archive/" %}data-active="true"{% endif %}>
+            Archive
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/andreasphil/devnotes" target="_blank">
+              View Source
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    {{ content }}
+  </body>
+</html>
