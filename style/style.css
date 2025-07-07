@@ -12,6 +12,13 @@
   --theme-primary: 67% 0.18 250;
 }
 
+@media (prefers-contrast: more) and (prefers-color-scheme: light) {
+  :root {
+    --theme-primary: 56% 0.18 250;
+    --c-fg-variant: var(--neutral-600);
+  }
+}
+
 body {
   border: dashed var(--c-border);
   border-width: 0 var(--border-width);
