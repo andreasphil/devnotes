@@ -5,7 +5,6 @@
   --body-padding-x: 0;
   --body-padding-y: clamp(48px, 4.486vw + 31.402px, 96px);
   --border-radius-large: 0px;
-  --line-height: 1.7;
   --theme-tint: 250;
   --theme-primary: 67% 0.18 250;
 }
@@ -14,6 +13,12 @@
   :root {
     --theme-primary: 56% 0.18 250;
     --c-fg-variant: var(--neutral-600);
+  }
+}
+
+@media (width >= 50rem) {
+  :root {
+    --line-height: 1.7;
   }
 }
 
