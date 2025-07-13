@@ -1,5 +1,5 @@
 <h1 align="center">
-  devnotes 🐸
+  Devnotes 🐸
 </h1>
 
 <p align="center">
@@ -8,7 +8,7 @@
 
 ## Development
 
-devnotes is a static website built with [Eleventy](https://www.11ty.dev). Packages are managed by [npm](https://npmjs.org). The following commands are available:
+Devnotes is a static website built with [Eleventy](https://www.11ty.dev). Packages are managed by [npm](https://npmjs.org). The following commands are available:
 
 ```sh
 node --run dev          # Start development server
