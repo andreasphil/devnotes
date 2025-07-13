@@ -2,12 +2,12 @@
 layout: baseLayout.html
 ---
 
-<main class="body-section p-0">
-  <article class="note m-0">
+<main class="body-section no-padding">
+  <article class="note no-margin no-shadow">
     <hgroup>
       <h2>
         {{ page.date | date: "%B %Y" }}
-        <span class="glowicon" data-icon="{{ icon }}"> {{ icon }} </span>
+        <span class="glow" data-content="{{ icon }}"> {{ icon }} </span>
       </h2>
       <p>{{ title }}</p>
     </hgroup>
@@ -26,13 +26,13 @@ layout: baseLayout.html
   {% if newer %}
   <a href="{{ newer.url }}">&leftarrow; Newer</a>
   {% else %}
-  <span class="text-variant">You're all caught up! 🎉</span>
+  <span class="color-variant">You're all caught up! 🎉</span>
   {% endif %}
 
   <!-- Older post -->
   {% if older %}
   <a href="{{ older.url }}">Older &rightarrow;</a>
   {% else %}
-  <span class="text-variant">This is the oldest note 🕸️</span>
+  <span class="color-variant">This is the oldest note 🕸️</span>
   {% endif %}
 </footer>

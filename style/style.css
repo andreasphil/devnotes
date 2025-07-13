@@ -1,7 +1,5 @@
-@import "/vendor/andreasphil/design-system@v0.49.0/dist/design-system.min.css"
+@import "/vendor/andreasphil/design-system@v0.52.0/dist/design-system.min.css"
   layer(theme);
-
-/* Base ------------------------------------------------ */
 
 :root {
   --body-padding-x: 0;
@@ -31,20 +29,8 @@ body {
   }
 }
 
-nav {
-  padding-block: 1rem;
-
-  li a {
-    font-weight: var(--font-weight-medium);
-  }
-}
-
 :is(h2, h3) {
   text-transform: capitalize;
-}
-
-article {
-  box-shadow: none;
 }
 
 hr {
@@ -56,18 +42,39 @@ strong {
   font-weight: var(--font-weight-medium);
 }
 
-/* Composition ----------------------------------------- */
-
 .body-section {
   border: 0px dashed var(--c-border);
-  border-block-end-width: var(--border-width);
-  border-block-start-width: var(--border-width);
-  padding-inline-end: 2rem;
-  padding-inline-start: 2rem;
-  margin-block-start: calc(-1 * var(--border-width));
+  border-block-width: var(--border-width);
+  margin-top: calc(-1 * var(--border-width));
+
+  &:not(.no-padding) {
+    padding-inline: 2rem;
+  }
 }
 
-.grid {
+.note {
+  --outer-spacing-y: 1rem;
+  --c-link: var(--primary);
+  --c-link-hover: var(--c-fg);
+
+  hgroup {
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    margin-top: 2rem;
+  }
+
+  :is(ol, ul, dl, li + li) {
+    margin-top: var(--outer-spacing-y);
+  }
+
+  ul:last-child li:last-child p {
+    margin-bottom: 0;
+  }
+}
+
+.cards {
   background-color: var(--c-border-variant);
   display: grid;
   grid-auto-rows: 1fr;
@@ -76,35 +83,6 @@ strong {
   margin: 0;
   padding: 0;
   gap: 1px;
-}
-
-/* Blocks ---------------------------------------------- */
-
-.logo {
-  border-radius: 30%;
-  box-shadow: var(--shadow-elevation-high);
-}
-
-.note {
-  --block-spacing-y: 1rem;
-  --c-link: var(--primary);
-  --c-link-hover: var(--c-fg);
-
-  hgroup {
-    margin-block-end: 2rem;
-  }
-
-  h3 {
-    margin-block-start: 2rem;
-  }
-
-  :is(ol, ul, dl, li + li) {
-    margin-block-start: var(--block-spacing-y);
-  }
-
-  ul:last-child li:last-child p {
-    margin-block-end: 0;
-  }
 }
 
 .card {
@@ -157,40 +135,4 @@ strong {
   justify-content: space-between;
   max-width: 50rem;
   padding-block: 2rem;
-}
-
-/* Utils ----------------------------------------------- */
-
-.-mx-8 {
-  margin-inline: -2rem;
-}
-
-.m-0 {
-  margin: 0;
-}
-
-.my-body {
-  margin-block-start: var(--body-padding-y);
-  margin-block-end: var(--body-padding-y);
-}
-
-.p-0 {
-  padding: 0;
-}
-
-.py-body {
-  padding-block-start: var(--body-padding-y);
-  padding-block-end: var(--body-padding-y);
-}
-
-.text-center {
-  text-align: center;
-}
-
-.text-h3 {
-  font-size: var(--font-size-h3);
-}
-
-.text-variant {
-  color: var(--c-fg-variant);
 }

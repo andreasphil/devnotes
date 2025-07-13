@@ -4,25 +4,27 @@ title: Archive
 ---
 
 <main>
-  <h1 class="text-center my-body">Archive</h1>
+  <div class="body-section">
+    <h1 class="text-center margin-y-body">Archive</h1>
+  </div>
 
-  <section class="body-section p-0">
-    <ul class="grid">
+  <div class="body-section no-padding">
+    <ul class="cards">
       {% for note in collections.note reversed %}
       <li class="card">
         <a href="{{ note.url }}">
-          <span class="card-icon glowicon" data-icon="{{ note.data.icon }}">
+          <span class="card-icon glow" data-content="{{ note.data.icon }}">
             {{ note.data.icon }}
           </span>
-          <span class="card-title" data-clamp>
+          <span class="card-title clamp">
             {{ note.page.date | date: "%B %Y" }}
           </span>
-          <span class="card-description" data-clamp style="--clamp: 2">
+          <span class="card-description clamp" style="--clamp: 2">
             {{ note.data.title }}
           </span>
         </a>
       </li>
       {% endfor %}
     </ul>
-  </section>
+  </div>
 </main>

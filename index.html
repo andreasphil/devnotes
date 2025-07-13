@@ -3,8 +3,8 @@ layout: baseLayout.html
 ---
 
 <main>
-  <section class="body-section">
-    <hgroup class="text-center my-body">
+  <div class="body-section">
+    <hgroup class="text-center margin-y-body">
       <h1>
         Monthly-ish learnings and discoveries related to frontend, the web, and
         software engineering in general.
@@ -18,16 +18,16 @@ layout: baseLayout.html
         </a>
       </p>
     </hgroup>
-  </section>
+  </div>
 
-  <section class="body-section p-0">
+  <div class="body-section no-padding">
     {% assign latestNote = collections.note | last %}
-    <article class="note m-0">
+    <article class="note no-margin no-shadow">
       <hgroup>
         <p>Latest edition</p>
         <h2>
           {{ latestNote.page.date | date: "%B %Y" }}
-          <span class="glowicon" data-icon="{{ latestNote.data.icon }}">
+          <span class="glow" data-content="{{ latestNote.data.icon }}">
             {{ latestNote.data.icon }}
           </span>
         </h2>
@@ -36,25 +36,25 @@ layout: baseLayout.html
 
       {{ latestNote.content }}
     </article>
-  </section>
+  </div>
 
-  <section class="body-section py-body" data-trim="both">
-    <h2 class="text-center text-h3">Previous editions</h2>
+  <div class="trim-bottom">
+    <h2 class="text-center margin-y-body">Previous editions</h2>
 
     {% assign previousNotes = collections.note | reverse | slice: 1, 6 %}
 
-    <div class="body-section p-0 -mx-8">
-      <ul class="grid">
+    <div class="body-section no-padding">
+      <ul class="cards">
         {% for note in previousNotes %}
         <li class="card">
           <a href="{{ note.url }}">
-            <span class="card-icon glowicon" data-icon="{{ note.data.icon }}">
+            <span class="card-icon glow" data-content="{{ note.data.icon }}">
               {{ note.data.icon }}
             </span>
-            <span class="card-title" data-clamp>
+            <span class="card-title clamp">
               {{ note.page.date | date: "%B %Y" }}
             </span>
-            <span class="card-description" data-clamp style="--clamp: 2">
+            <span class="card-description clamp" style="--clamp: 2">
               {{ note.data.title }}
             </span>
           </a>
@@ -66,5 +66,5 @@ layout: baseLayout.html
     <p class="text-center">
       Find all previous editions in the <a href="/archive">archive.</a>
     </p>
-  </section>
+  </div>
 </main>

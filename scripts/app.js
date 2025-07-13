@@ -1,4 +1,4 @@
-import { useThemeColor } from "../vendor/andreasphil/design-system@v0.49.0/scripts/utils.js";
+import { useThemeColor } from "../vendor/andreasphil/design-system@v0.52.0/scripts/utils.js";
 
 useThemeColor();
 
